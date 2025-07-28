@@ -1,0 +1,21 @@
+//
+//  Localizable.strings
+//  scoliometer
+//
+//  Created by Filip Skup on 03/07/2025.
+//
+
+"patient" = "Pacjent";
+"measure" = "Pomiar";
+"reset" = "Resetuj";
+"limit_reached_title" = "Limit osiągnięty";
+"limit_reached_message" = "Możesz zapisać maksymalnie 20 pomiarów.";
+"ok" = "OK";
+"delete" = "Usuń";
+//"delete_confirmation_title" = "Potwierdź usunięcie";
+//"delete_confirmation_message" = "Czy na pewno chcesz usunąć wszystkie pomiary? Tej czynności nie można cofnąć.";
+"delete_success_title" = "Sukces";
+"delete_success_message" = "Pomiary zostały usunięte.";
+"cancel" = "Anuluj";
+"save" = "Zapisz";
+

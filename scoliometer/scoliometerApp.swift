@@ -8,25 +8,36 @@
 import SwiftUI
 import SwiftData
 
+class AppDelegate: NSObject, UIApplicationDelegate {
+    static var orientationLock: UIInterfaceOrientationMask = .portrait {
+        didSet {
+            // Wymuszenie aktualizacji dla starszych wersji iOS
+            if #unavailable(iOS 16.0) {
+                UIViewController.attemptRotationToDeviceOrientation()
+            }
+        }
+    }
+    
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return AppDelegate.orientationLock
+    }
+}
+
 @main
 struct scoliometerApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
+    let container: ModelContainer
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            PatientsListView(modelContext: container.mainContext)
         }
-        .modelContainer(sharedModelContainer)
+        .modelContainer(container)
+    }
+    init() {
+        do {
+            container = try ModelContainer(for: Patient.self)
+        } catch {
+            fatalError("Failed to create ModelContainer for Movie.")
+        }
     }
 }

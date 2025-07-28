@@ -1,0 +1,20 @@
+//
+//  Localizable.strings
+//  scoliometer
+//
+//  Created by Filip Skup on 03/07/2025.
+//
+
+"patient" = "Patient";
+"measure" = "Measure";
+"reset" = "Reset";
+"limit_reached_title" = "Limit reached";
+"limit_reached_message" = "You can save up to 20 measurements only.";
+"ok" = "OK";
+"delete" = "Delete";
+//"delete_confirmation_title" = "Confirm deletion";
+//"delete_confirmation_message" = "Are you sure you want to delete all measurements? This action cannot be undone.";
+"delete_success_title" = "Success";
+"delete_success_message" = "Measurements have been deleted.";
+"cancel" = "Cancel";
+"save" = "Save";

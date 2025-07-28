@@ -1,40 +1,42 @@
-📱 Scoliometer – Aplikacja iOS do pomiaru rotacji tułowia
-Scoliometer to aplikacja mobilna tworzona w SwiftUI, która umożliwi:
+# 📱 Scoliometer – Aplikacja iOS do pomiaru rotacji tułowia
 
-Pomiar kąta rotacji tułowia z wykorzystaniem żyroskopu wbudowanego w iPhone’a
+**Scoliometer** to aplikacja mobilna tworzona w SwiftUI, której celem jest ułatwienie pomiaru kąta rotacji tułowia przy pomocy żyroskopu wbudowanego w iPhone’a. Umożliwia przypisywanie wyników do konkretnych pacjentów oraz przechowywanie historii pomiarów.
 
-Dodawanie pacjentów i przypisywanie im wyników
+> 🛠 **Status:** Aplikacja jest w trakcie tworzenia. Projekt jest aktywnie rozwijany.
 
-Przeglądanie historii pomiarów dla każdego pacjenta
+---
 
-🛠 Uwaga: Aplikacja jest w trakcie tworzenia. Projekt jest w fazie rozwoju – kolejne funkcje są w trakcie implementacji.
+## ✨ Planowane funkcje
 
-🔧 Planowane funkcje
-Pomiar kąta rotacji
-Automatyczny pomiar przy użyciu żyroskopu – wystarczy położyć iPhone’a na plecach pacjenta.
+- ✅ Automatyczny pomiar kąta rotacji tułowia z wykorzystaniem żyroskopu
+- ⏳ Dodawanie pacjentów i przypisywanie im wyników
+- ✅ Lokalna baza danych z historią pomiarów
+- ⏳ Przeglądanie wyników przypisanych do konkretnego pacjenta
+- ⏳ Eksport wyników (CSV, PDF)
+- ⏳ Generowanie raportów i wykresów
 
-Dodawanie pacjentów
-Formularz z danymi pacjenta: imię, nazwisko, identyfikator.
+---
 
-Zapis wyników
-Wyniki będą zapisywane z datą i przypisane do konkretnego pacjenta.
+## 🔐 Prywatność
 
-Historia pomiarów
-Możliwość przeglądania listy wcześniejszych pomiarów dla każdego pacjenta.
+Aplikacja nie wymaga połączenia z internetem – wszystkie dane są przechowywane lokalnie na urządzeniu użytkownika.
 
-📦 Przechowywanie danych
-Dane pacjentów i wyniki pomiarów będą przechowywane lokalnie na urządzeniu. Aplikacja nie będzie wymagała połączenia z internetem.
+---
 
-📈 Możliwości rozwoju
-Eksport danych do plików (CSV/PDF)
+## 🧠 Technologie
 
-Generowanie raportów
+- SwiftUI (interfejs użytkownika)
+- CoreMotion (obsługa żyroskopu)
+- CoreData (lokalna baza danych)
+- MVVM (organizacja kodu)
 
-Wykresy postępów
+---
 
-Logowanie fizjoterapeutów i synchronizacja danych
+## 👨‍💻 Autor
 
-👨‍💻 Autor
-Filip
-GitHub – Filip0221
+Filip  
+[GitHub – Filip0221](https://github.com/Filip0221)
 
+---
+
+Zachęcam do śledzenia repozytorium – kolejne funkcje będą pojawiać się sukcesywnie!

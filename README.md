@@ -33,7 +33,7 @@ Aplikacja nie wymaga połączenia z internetem – wszystkie dane są przechowyw
 ---
 ## 📷 Zdjęcia
 Zdjęcie narazie jednego widoku w którym wykonujemy pomiary
-<img width="420" height="205" alt="Zrzut ekranu 2025-07-28 o 16 40 56" src="https://github.com/user-attachments/assets/758b2af0-4c8d-4b9f-9b7b-7d3c5c4c6f95" />
+# <img width="420" height="205" alt="Zrzut ekranu 2025-07-28 o 16 40 56" src="https://github.com/user-attachments/assets/758b2af0-4c8d-4b9f-9b7b-7d3c5c4c6f95" />
 
 ---
 

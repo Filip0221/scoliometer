@@ -10,11 +10,11 @@ import Foundation
 import SwiftData
 
 
-@Model public class Measurement {
-    var measurement: Double? = 0
-    var toPatientTestResult: PatientTestResult?
-    public init() {
-
-    }
-    
-}
+//@Model public class Measurement {
+//    var measurement: Double? = 0
+//    var toPatientTestResult: PatientTestResult?
+//    public init() {
+//
+//    }
+//    
+//}

@@ -6,23 +6,81 @@
 //
 
 import SwiftUI
-import CoreData
+import SwiftData
 
 struct ContentView: View {
+    @State private var topExpanded: Bool = true
+    @State private var viewModel: PatientViewModel
+
     var body: some View {
-        VStack{
-            HStack{
-                Text(LocalizedStringKey("scoliometer"))
-                    .foregroundStyle(.blue)
-                    .padding()
-                    .font(.title)
-                    .bold()
+        NavigationStack{
+            VStack{
+                HStack{
+                    Text(LocalizedStringKey("scoliometer"))
+                        .foregroundStyle(.blue)
+                        .padding()
+                        .font(.title)
+                        .bold()
+                    Spacer()
+                }
+                
+                NavigationLink(destination: ScoliometerView(), label: {Text(LocalizedStringKey("takeMeasurements"))
+                        .padding(.vertical, 6)
+                        .padding(.horizontal)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(Color.gray.opacity(0.1))
+                        .cornerRadius(6)
+                })
+                .padding(.vertical, 6)
+                .padding(.horizontal)
+                    
+                DisclosureGroup(LocalizedStringKey("patientList"), isExpanded: $topExpanded) {
+                    ForEach(viewModel.patients, id: \.self) { patient in
+                        NavigationLink(destination: PatientDetailView(patient: patient)){
+                            HStack{
+                                Text(patient.name ?? "Unknown")
+                                Text(patient.lastName ?? "Unknown")
+                            }.padding(.vertical, 3)
+                        }
+                    }
+                }
+                .padding()
+                .background(Color.gray.opacity(0.1))
+                .padding(.vertical, 6)
+                .padding(.horizontal)
                 Spacer()
             }
-            Spacer()
         }
+    }
+    init(modelContext: ModelContext) {
+        let viewModel = PatientViewModel(modelContext: modelContext)
+        _viewModel = .init(initialValue: viewModel)
+    }
+}
+struct PatientDetailView: View {
+    let patient: Patient
+    
+    var body: some View {
+        Text("Szczegóły pacjenta: \(String(describing: patient.name)) \(String(describing: patient.lastName))")
+            .font(.title2)
+            .padding()
     }
 }
 #Preview {
-    ContentView()
+    // Konfiguracja kontenera w pamięci (tylko do podglądu)
+    let config = ModelConfiguration(isStoredInMemoryOnly: true)
+    let container = try! ModelContainer(for: Patient.self, configurations: config)
+    
+    // Dodanie przykładowych danych
+    let testPatients = [
+        Patient(name: "Jan", lastName: "Kowalski", dateBirth: Date()),
+        Patient(name: "Anna", lastName: "Nowak", dateBirth: Date().addingTimeInterval(-86400))
+    ]
+    
+    testPatients.forEach { container.mainContext.insert($0) }
+    
+    // Zwrócenie widoku z przekazanym kontekstem
+    return ContentView(modelContext: container.mainContext)
+        .modelContainer(container) // Dodanie kontenera do środowiska
 }
+

@@ -13,7 +13,8 @@ import SwiftData
 @Model public class PatientTestResult {
     var date: Date?
     var result: String?
-    var toMeasurement: [Measurement]?
+    //var toMeasurement: [Measurement]?
+    var measurment: [Double]?
     var toPatient: Patient?
     public init() {
 

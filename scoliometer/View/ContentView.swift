@@ -9,16 +9,19 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-    
-
-    
     var body: some View {
-        
-
-        
+        VStack{
+            HStack{
+                Text(LocalizedStringKey("scoliometer"))
+                    .foregroundStyle(.blue)
+                    .padding()
+                    .font(.title)
+                    .bold()
+                Spacer()
+            }
+            Spacer()
+        }
     }
-    
 }
 #Preview {
     ContentView()

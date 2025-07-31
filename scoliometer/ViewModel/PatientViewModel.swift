@@ -26,8 +26,13 @@ class PatientViewModel: ObservableObject {
         }
     }
     
-    func addPatient() {
-        let patient = Patient(name: "Jan", lastName: "Kowalski", dateBirth: Date())
+    func addPatient(name: String, lastName: String, dateBirth: Date, patientID: Int16?) {
+        let patient = Patient(
+                    name: name,
+                    lastName: lastName,
+                    dateBirth: dateBirth,
+                    patientID: patientID
+                )
         modelContext.insert(patient)
         do {
             try modelContext.save()
@@ -36,6 +41,7 @@ class PatientViewModel: ObservableObject {
             print("Save failed: \(error.localizedDescription)")
         }
     }
+    
     func deletePatients(at offsets: IndexSet) {
         for index in offsets {
             let patient = patients[index]

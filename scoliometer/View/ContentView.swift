@@ -13,6 +13,8 @@ struct ContentView: View {
     @State private var viewModel: PatientViewModel
     @State private var showDeleteAlert: Bool = false
     @State private var indexSetToDelete: IndexSet?
+    @State private var isShowingDestination = false
+
     
     
     var body: some View {
@@ -26,15 +28,22 @@ struct ContentView: View {
                         .bold()
                     Spacer()
                     Button{
-                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                        isShowingDestination = true
                     } label: {
                         HStack {
                             Text(LocalizedStringKey("addPatient"))
                             Image(systemName: "plus.circle")
                         }
+                        .padding(6)
+                        .background(Color.green)
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
                     }
+                    .navigationDestination(isPresented: $isShowingDestination) {
+                        ScoliometerView()
+                    }
+                    .padding(10)
                     
-                    .padding(.horizontal, 6)
                 }
                 
                 NavigationLink(destination: ScoliometerView(), label: {Text(LocalizedStringKey("takeMeasurements"))

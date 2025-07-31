@@ -14,18 +14,18 @@ import SwiftData
     var dateBirth: Date?
     var lastName: String?
     var name: String?
-    var patientID: Int16? = 0
+    var patientID: Int16?
     var timestamp: Date?
     @Relationship(inverse: \PatientTestResult.toPatient) var toPatientTestResult: [PatientTestResult]?
     public init() {
         
     }
-    public init(name: String?, lastName: String?, dateBirth: Date?) {
+    public init(name: String?, lastName: String?, dateBirth: Date?, patientID: Int16? = nil) {
             self.name = name
             self.lastName = lastName
             self.dateBirth = dateBirth
             self.timestamp = Date()
-            self.patientID = Int16.random(in: 1000...9999)
+            self.patientID = patientID
         }
     
 }

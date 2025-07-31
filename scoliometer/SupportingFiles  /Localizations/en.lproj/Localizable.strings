@@ -21,3 +21,6 @@
 "scoliometer" = "Scoliometer";
 "takeMeasurements" = "Take Measurements";
 "patientList" = "Patients list";
+"alertDeletePatient" = "Are you sure you want to delete the selected patient? This operation cannot be undone.";
+"removePatient" = "Remove patient";
+"addPatient" = "add Patient";

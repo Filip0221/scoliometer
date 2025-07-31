@@ -21,4 +21,8 @@
 "scoliometer" = "Skoliometr";
 "takeMeasurements" = "Wykonaj Pomiary";
 "patientList" = "Lista Pacjentów";
+"alertDeletePatient" = "Czy na pewno chcesz usunąć wybranego pacjenta? Tej operacji nie można cofnąć";
+"removePatient" = "Usuń pacjenta";
+"addPatient" = "dodaj Pacjęta";
+
 

@@ -11,7 +11,10 @@ import SwiftData
 struct ContentView: View {
     @State private var topExpanded: Bool = true
     @State private var viewModel: PatientViewModel
-
+    @State private var showDeleteAlert: Bool = false
+    @State private var indexSetToDelete: IndexSet?
+    
+    
     var body: some View {
         NavigationStack{
             VStack{
@@ -22,6 +25,16 @@ struct ContentView: View {
                         .font(.title)
                         .bold()
                     Spacer()
+                    Button{
+                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                    } label: {
+                        HStack {
+                            Text(LocalizedStringKey("addPatient"))
+                            Image(systemName: "plus.circle")
+                        }
+                    }
+                    
+                    .padding(.horizontal, 6)
                 }
                 
                 NavigationLink(destination: ScoliometerView(), label: {Text(LocalizedStringKey("takeMeasurements"))
@@ -33,16 +46,28 @@ struct ContentView: View {
                 })
                 .padding(.vertical, 6)
                 .padding(.horizontal)
-                    
+                
                 DisclosureGroup(LocalizedStringKey("patientList"), isExpanded: $topExpanded) {
-                    ForEach(viewModel.patients, id: \.self) { patient in
-                        NavigationLink(destination: PatientDetailView(patient: patient)){
-                            HStack{
-                                Text(patient.name ?? "Unknown")
-                                Text(patient.lastName ?? "Unknown")
-                            }.padding(.vertical, 3)
+                    List {
+                        ForEach(viewModel.patients, id: \.self) { patient in
+                            NavigationLink(destination: PatientDetailView(patient: patient)) {
+                                HStack {
+                                    Text(patient.name ?? "Unknown")
+                                    Text(patient.lastName ?? "Unknown")
+                                }.padding(.vertical, 6)
+                            }
                         }
+                        .onDelete{ indexSet in
+                            indexSetToDelete = indexSet
+                            showDeleteAlert = true
+                        }
+                        
+                    
+                
                     }
+                    .padding(.top, 6)
+                    .listStyle(PlainListStyle())
+                    .frame(height: CGFloat(viewModel.patients.count * 60))
                 }
                 .padding()
                 .background(Color.gray.opacity(0.1))
@@ -50,13 +75,27 @@ struct ContentView: View {
                 .padding(.horizontal)
                 Spacer()
             }
+            .alert(isPresented: $showDeleteAlert) {
+                Alert(
+                    title: Text(LocalizedStringKey("removePatient")),
+                    message: Text(LocalizedStringKey("alertDeletePatient")),
+                    primaryButton: .destructive(Text(LocalizedStringKey("delete"))) {
+                        if let indices = indexSetToDelete {
+                            viewModel.deletePatients(at: indices)
+                        }
+                    },
+                    secondaryButton: .cancel()
+                )
+            }
         }
     }
     init(modelContext: ModelContext) {
         let viewModel = PatientViewModel(modelContext: modelContext)
         _viewModel = .init(initialValue: viewModel)
     }
+    
 }
+    
 struct PatientDetailView: View {
     let patient: Patient
     

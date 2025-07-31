@@ -36,4 +36,17 @@ class PatientViewModel: ObservableObject {
             print("Save failed: \(error.localizedDescription)")
         }
     }
+    func deletePatients(at offsets: IndexSet) {
+        for index in offsets {
+            let patient = patients[index]
+            modelContext.delete(patient)
+        }
+        do {
+            try modelContext.save()
+            fetchData() // Odśwież listę po usunięciu
+        } catch {
+            print("Delete failed: \(error.localizedDescription)")
+        }
+    }
+
 }

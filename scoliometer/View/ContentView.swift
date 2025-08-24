@@ -79,7 +79,10 @@ struct ContentView: View {
                     .frame(height: CGFloat(viewModel.patients.count * 60))
                 }
                 .padding()
-                .background(Color.gray.opacity(0.1))
+                .background(
+                    Color.gray.opacity(0.1)
+                        .cornerRadius(8)
+                )
                 .padding(.vertical, 6)
                 .padding(.horizontal)
                 Spacer()
@@ -105,15 +108,7 @@ struct ContentView: View {
     
 }
     
-struct PatientDetailView: View {
-    let patient: Patient
-    
-    var body: some View {
-        Text("Szczegóły pacjenta: \(String(describing: patient.name)) \(String(describing: patient.lastName))")
-            .font(.title2)
-            .padding()
-    }
-}
+
 #Preview {
     // Konfiguracja kontenera w pamięci (tylko do podglądu)
     let config = ModelConfiguration(isStoredInMemoryOnly: true)

@@ -26,7 +26,7 @@ class PatientViewModel: ObservableObject {
         }
     }
     
-    func addPatient(name: String, lastName: String, dateBirth: Date, patientID: Int16?) {
+    func addPatient(name: String, lastName: String, dateBirth: Date?, patientID: Int16?) {
         let patient = Patient(
                     name: name,
                     lastName: lastName,

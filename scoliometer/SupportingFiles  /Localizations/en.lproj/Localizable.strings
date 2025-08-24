@@ -8,8 +8,6 @@
 "patient" = "Patient";
 "measure" = "Measure";
 "reset" = "Reset";
-"limit_reached_title" = "Limit reached";
-"limit_reached_message" = "You can save up to 20 measurements only.";
 "ok" = "OK";
 "delete" = "Delete";
 //"delete_confirmation_title" = "Confirm deletion";
@@ -24,3 +22,16 @@
 "alertDeletePatient" = "Are you sure you want to delete the selected patient? This operation cannot be undone.";
 "removePatient" = "Remove patient";
 "addPatient" = "add Patient";
+"nameError" = "name error";
+"patientDetails" = "Patient Details";
+"patientName" = "First name";
+"patientLastName" = "Last name";
+"patientBirthDate" = "Date of birth";
+"patientID" = "Patient ID";
+"unknown" = "Unknown";
+
+//
+// błędy
+//
+"limit_reached_title" = "Limit reached";
+"limit_reached_message" = "You can save up to 20 measurements only.";

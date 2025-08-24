@@ -8,8 +8,6 @@
 "patient" = "Pacjent";
 "measure" = "Pomiar";
 "reset" = "Resetuj";
-"limit_reached_title" = "Limit osiągnięty";
-"limit_reached_message" = "Możesz zapisać maksymalnie 20 pomiarów.";
 "ok" = "OK";
 "delete" = "Usuń";
 //"delete_confirmation_title" = "Potwierdź usunięcie";
@@ -24,5 +22,17 @@
 "alertDeletePatient" = "Czy na pewno chcesz usunąć wybranego pacjenta? Tej operacji nie można cofnąć";
 "removePatient" = "Usuń pacjenta";
 "addPatient" = "dodaj Pacjęta";
+"nameError" = "błąd nazwy";
+"patientDetails" = "Szczegóły Pacjenta";
+"patientName" = "Imię";
+"patientLastName" = "Nazwisko";
+"patientBirthDate" = "Data urodzenia";
+"patientID" = "ID pacjenta";
+"unknown" = "Brak danych";
 
+//
+// błędy
+//
+"limit_reached_title" = "Limit osiągnięty";
+"limit_reached_message" = "Możesz zapisać maksymalnie 20 pomiarów.";
 
